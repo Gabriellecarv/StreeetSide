@@ -1,0 +1,23 @@
+main {
+background-color: ;
+
+
+}
+
+
+#navbar {
+    background-color: transparent !important; /* Torna o fundo da navbar transparente */
+    border-bottom: none !important; /* Remove a borda inferior */
+  }
+  
+  /* Estilo para o texto dentro da navbar (se necessário) */
+  #navbar .nav-link {
+    color:  white !important; /* Torna o texto das opções branco para visibilidade */
+  }
+  
+  /* Estilo para o logo (navbar-brand) */
+  #navbar .navbar-brand {
+    color: white !important; /* Torna o logo branco para visibilidade */
+  }
+  
+  
