@@ -46,96 +46,136 @@
                               <li><a class="dropdown-item" href="#">Camisas</a></li>
                             </ul>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Central de Atendimento</a>
+                          </li>
                         </ul>
                       </div>
+                      <i class="bi bi-bag-fill ms-auto" id="sacola" style="font-size: 2rem; cursor: pointer;" onclick="location.href='carrinho.html';"></i>
                     </div>
                   </nav>
+                  <main>
+                    <b><span style="color: #fa3d03; font-weight: 800;">----------- LANÇAMENTOS ----------<i></i></span></b>
+                  <div class="container">
                   <div class="row">
-                    <!-- Card 1: Camiseta Classic Fit Bombing The System -->
                   
                     <div class="col-xl-4 col-sm-6 g-5">
                       <div class="card" style="background-color: transparent; border: none;">
-                          <img src="img/01-BOMBING-THE-SYSTEM-CAMISETA-CLASSIC.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                          <img src="img/01-WNTD-INST-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
                           <div class="card-body">
-                              <h5 class="card-title">Camiseta Classic Fit Bombing
-                              <p class="card-text">R$89,90</p>
-                              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBibasRock">
-                                  Comprar
-                              </button>
+                              <h5 class="card-title">Camiseta Basic Wntd Inst
+                              <p class="card-text">R$99,90</p>
+                              <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta basic Wntd Inst', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                Adicionar ao Carrinho
+                            </button>
+                            
+                            <script>
+                            function adicionarAoCarrinho(nomeProduto, precoProduto) {
+                                let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                                let item = { nome: nomeProduto, preco: precoProduto };
+                            
+                                // Adiciona o item ao carrinho
+                                carrinho.push(item);
+                                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                            
+                                alert(nomeProduto + " foi adicionado ao carrinho!");
+                            }
+                            
+                            // Para exibir o número de itens no ícone da sacola:
+                            function atualizarSacola() {
+                                let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                                let qtdItens = carrinho.length;
+                                document.getElementById('sacola').innerHTML = ' (' + qtdItens + ')';
+                            }
+                            
+                            // Chama a função para atualizar a sacola assim que a página carrega
+                            window.onload = atualizarSacola;
+                            </script>
+                            
+                            <!-- Botão Comprar -->
+                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                Comprar
+                            </button>
                           </div>
                       </div>
                   </div>
                     
         
-                    <!-- Modal do Big Bob -->
-                    <div class="modal fade" id="modalBigBob" tabindex="-1" aria-labelledby="modalBigBobLabel" aria-hidden="true">
+               
+                  <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalComprarLabel">Pedido Finalizado</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Agradecemos por escolher nossos produtos. 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+               
+                    <div class="col-xl-4 col-sm-6 g-5">
+                        <div class="card" style="background-color: transparent; border: none;">
+                            <img src="img/03-REAL-WORLDWIDE-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                            <div class="card-body">
+                                <h5 class="card-title">Camiseta Basic Real Worldwide
+                                <p class="card-text">R$99,90</p>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Real Worldwide', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                    Adicionar ao Carrinho
+                                </button>
+                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                    Comprar
+                                  </button>
+                            </div>
+                        </div>
+                    </div>
+        
+               
+                    <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalBigBobLabel">Pedido Finalizado</h1>
+                                    <h1 class="modal-title fs-5" id="modalComprarLabel">Pedido Finalizado</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+                                    Agradecemos por escolher nossos produtos. 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
         
-                    <!-- Card 2: Camiseta Classic Fit Chill Out -->
+                
                     <div class="col-xl-4 col-sm-6 g-5">
                         <div class="card" style="background-color: transparent; border: none;">
-                            <img src="img/03-CHILL-OUT-CAMISETA-CLASSIC-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                            <img src="img/09-SANS-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Copão de Cria">
                             <div class="card-body">
-                                <h5 class="card-title">Camiseta Classic Fit Chill Out
-                                <p class="card-text">R$89,90</p>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBibasRock">
-                                    Comprar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Modal do Bibas Rock -->
-                    <div class="modal fade" id="modalBibasRock" tabindex="-1" aria-labelledby="modalBibasRockLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalBibasRockLabel">Pedido Finalizado</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <!-- Card 3: Camiseta Classic Fit Copão de Cria -->
-                    <div class="col-xl-4 col-sm-6 g-5">
-                        <div class="card" style="background-color: transparent; border: none;">
-                            <img src="img/01-COPAO-DE-CRIA-CAMISETA-CLASSIC-1-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Copão de Cria">
-                            <div class="card-body">
-                                <h5 class="card-title">Camiseta Classic Fit Copão de Cria
-                                <p class="card-text">R$89,90</p>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBibasBacon">
-                                    Comprar
-                                </button>
+                                <h5 class="card-title">Camiseta Basic Sans
+                                <p class="card-text">R$99,90</p>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Sans', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                    Adicionar ao Carrinho
+                                      <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                        Comprar
+                                    </button>
+                                      </button>
                             </div>
                         </div>
                     </div>
         
                     
   
-                    <!-- Modal do Bibas Bacon -->
+                    
                     <div class="modal fade" id="modalBibasBacon" tabindex="-1" aria-labelledby="modalBibasBaconLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -144,31 +184,33 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+                                    Agradecemos por escolher nossos produtos.
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">finalizar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <!-- Card 4: Camiseta Classic Fit Shoe Tossed -->
+     
                     <div class="col-xl-4 col-sm-6 g-5">
                         <div class="card" style="background-color: transparent; border: none;">
-                            <img src="img/05-SHOE-TOSSED-CAMISETA-CLASSIC-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit – Shoe Tossed">
+                            <img src="img/01-ALRIGHT-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit – Shoe Tossed">
                             <div class="card-body">
-                                <h5 class="card-title">Camiseta Classic Fit  Shoe Tossed
-                                <p class="card-text">R$89,90</p>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCheddarAustraliano">
+                                <h5 class="card-title">Camiseta Basic Alright
+                                <p class="card-text">R$99,90</p>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Alright', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                    Adicionar ao Carrinho
+                                </button>
+                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
                                     Comprar
                                 </button>
+                                  
                             </div>
                         </div>
                     </div>
         
-                    <!-- Modal do Cheddar Australiano -->
                     <div class="modal fade" id="modalCheddarAustraliano" tabindex="-1" aria-labelledby="modalCheddarAustralianoLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -177,31 +219,34 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+                                    Agradecemos por escolher nossos produtos.
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
         
-                    <!-- Card 5: Bacon e Cheddar -->
+                  
                     <div class="col-xl-4 col-sm-6 g-5">
                         <div class="card" style="background-color: transparent; border: none;">
-                            <img src="img/07-CASH-IN-CAMISETA-BASIC-26.1.webp" class="card-img-top" alt="Bacon e Cheddar">
+                            <img src="img/01-FUNCAO-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Bacon e Cheddar">
                             <div class="card-body">
-                                <h5 class="card-title">Camiseta Basic Cash In
-                                <p class="card-text">R$89,90</p>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBaconCheddar">
+                                <h5 class="card-title">Camiseta Basic Função
+                                <p class="card-text">R$99,90</p>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Função', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                    Adicionar ao Carrinho
+                                </button>
+                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
                                     Comprar
                                 </button>
+                                  </button>
                             </div>
                         </div>
                     </div>
         
-                    <!-- Modal do Bacon e Cheddar -->
                     <div class="modal fade" id="modalBaconCheddar" tabindex="-1" aria-labelledby="modalBaconCheddarLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -210,31 +255,34 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+                                    Agradecemos por escolher nossos produtos..
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
         
-                    <!-- Card 6: Bacon e Salada -->
+                
                     <div class="col-xl-4 col-sm-6 g-5">
                         <div class="card" style="background-color: transparent; border: none;">
-                            <img src="img/07-GET-MONEY-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Bacon e Salada">
+                            <img src="img/05-GET-MONEY-CAMISETA-BASIC-26.1-900x900.webp" class="card-img-top" alt="Bacon e Salada">
                             <div class="card-body">
                                 <h5 class="card-title">Camiseta Basic Get Money
                                 <p class="card-text">R$89,90</p>
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalBaconSalada">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Get Money', 89.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                                    Adicionar ao Carrinho
+                                </button>
+                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
                                     Comprar
                                 </button>
+                                  </button>
                             </div>
                         </div>
                     </div>
         
-                    <!-- Modal do Bacon e Salada -->
                     <div class="modal fade" id="modalBaconSalada" tabindex="-1" aria-labelledby="modalBaconSaladaLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -243,23 +291,128 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Agradecemos por escolher nossos produtos. Esperamos que você desfrute do sabor e da qualidade. Sua satisfação é muito importante para nós. Se tiver alguma dúvida ou sugestão, não hesite em nos contatar.
+                                    Agradecemos por escolher nossos produtos.
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Salvar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+                <div class="container">
+                    <div class="row">
+            <div class="col-xl-4 col-sm-6 g-5">
+                <div class="card" style="background-color: transparent; border: none;">
+                    <img src="img/01-BRASA-SHORT-ELASTICO-MASCULINO-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                    <div class="card-body">
+                        <h5 class="card-title">Short Elastico Brasa
+                        <p class="card-text">R$119,90</p>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Short Elastico Brasa', 119.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                            Adicionar ao Carrinho
+                        </button>
+                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                            Comprar
+                        </button>
+                          </button>
+                          
+                          <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalComprarLabel">Pedido Finalizado</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Agradecemos por escolher nossos produtos. 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                  </m1>  
+                </div>
+              </div>
+              <div class="col-xl-4 col-sm-6 g-5">
+                <div class="card" style="background-color: transparent; border: none;">
+                    <img src="img/07-ROUND-SHORT-ELASTICO-MASCULINO-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                    <div class="card-body">
+                        <h5 class="card-title">Short Elastico Round
+                        <p class="card-text">R$119,90</p>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Short Elastico Round', 119.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                            Adicionar ao Carrinho
+                        </button>
+                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                            Comprar
+                        </button>
+                          </button>
+                       
+                        <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalComprarLabel">Pedido Finalizado</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Agradecemos por escolher nossos produtos. 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+              <div class="col-xl-4 col-sm-6 g-5">
+                <div class="card" style="background-color: transparent; border: none;">
+                    <img src="img/07-BY-THE-STREETS-900x900.webp" class="card-img-top" alt="Camiseta Classic Fit Chill Out">
+                    <div class="card-body">
+                        <h5 class="card-title">Bermuda Cargo By The Streets
+                        <p class="card-text">R$249,90</p>
+                        <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Bermuda Cargo By the Streeets', 249.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
+                            Adicionar ao Carrinho
+                        </button>
+                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                            Comprar
+                        </button>
+                          </button>
+
+                        <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modalComprarLabel">Pedido Finalizado</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Agradecemos por escolher nossos produtos. 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Finalizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
         </main>
-        
-        
-        
-          <footer></footer>
+          <footer>
+            <i class="bi bi-telephone"> (31) 4002- 8922</i><h5>
+                
+            <i class="bi bi-envelope-at"> lojastreeetside@gmail.com</i>
+            <p>© 2024 - Streeet Side</p>
+          </footer>
       </body>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </html>

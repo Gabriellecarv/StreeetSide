@@ -1,7 +1,18 @@
-main {
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+main { 
 
 background-color: floralwhite;
 text-align: center;
 font-size: 25pt;
 font-family: Metropolis, Arial, sans-serif;
+}
+
+#sacola{
+    color: white;
+   
+}
+footer {
+    text-align: center;
+    background-color: black;
+    color: white;
 }
