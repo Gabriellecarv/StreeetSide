@@ -35,3 +35,8 @@ body {
 .chat-input {
     width: 100%;
 }
+#Enviar{
+    margin-top: 15px;
+    width: 150px;
+    font-weight: bold;
+}

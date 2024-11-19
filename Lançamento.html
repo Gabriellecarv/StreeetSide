@@ -5,8 +5,10 @@
         <meta name = "viewport" content="width=device-width, initial scaled=1.0">
         <title>Streeet Side</title>
         <link rel="icon" href="img/Streeet__4000_x_2500_px_-removebg-preview.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+     
       </head>
     <body>
         <header>
@@ -42,16 +44,17 @@
                             </a>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="moletom.html">Moletom</a></li>
-                              <li><a class="dropdown-item" href="bermuda.htmls">Shorts & Bermuda</a></li>
+                              <li><a class="dropdown-item" href="bermuda.html">Shorts & Bermuda</a></li>
                               <li><a class="dropdown-item" href="camisa.html">Camisas</a></li>
+                              <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             </ul>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="central.html">Central de Atendimento</a>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="central.html">Central de Atendimento</a>
+                              </li>
                           </li>
                         </ul>
+                        <i class="bi bi-bag-fill ms-auto" id="sacola" style="font-size: 2rem; cursor: pointer;" onclick="location.href='carrinho.html';"></i>
                       </div>
-                      <i class="bi bi-bag-fill ms-auto" id="sacola" style="font-size: 2rem; cursor: pointer;" onclick="location.href='carrinho.html';"></i>
                     </div>
                   </nav>
                   <main>
@@ -93,9 +96,9 @@
                             </script>
                             
                             <!-- Botão Comprar -->
-                            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                            <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                                 Comprar
-                            </button>
+                            </a>
                           </div>
                       </div>
                   </div>
@@ -130,9 +133,9 @@
                                 <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Real Worldwide', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                                     Adicionar ao Carrinho
                                 </button>
-                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                  <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                                     Comprar
-                                  </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -163,15 +166,18 @@
                             <div class="card-body">
                                 <h5 class="card-title">Camiseta Basic Sans
                                 <p class="card-text">R$99,90</p>
-                                <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Sans', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
-                                    Adicionar ao Carrinho
-                                      <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
-                                        Comprar
+                              
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Sans', 99.90);" style="transition: all 0.3s ease; font-weight: bold;">
+                                        Adicionar ao Carrinho
                                     </button>
-                                      </button>
+                                    <a href="compra.html?produto=Camiseta+Basic+Sans&preco=99.90" class="btn btn-success btn-sm ms-2" style="transition: all 0.3s ease; font-weight: bold;">
+                                        Comprar
+                                    </a>
+                                
                             </div>
                         </div>
                     </div>
+                    
         
                     
   
@@ -200,13 +206,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">Camiseta Basic Alright
                                 <p class="card-text">R$99,90</p>
+                                
                                 <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Alright', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                                     Adicionar ao Carrinho
                                 </button>
-                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                                     Comprar
-                                </button>
-                                  
+                                </a>
+                           
                             </div>
                         </div>
                     </div>
@@ -239,9 +246,9 @@
                                 <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Função', 99.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                                     Adicionar ao Carrinho
                                 </button>
-                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                                     Comprar
-                                </button>
+                                </a>
                                   </button>
                             </div>
                         </div>
@@ -275,9 +282,9 @@
                                 <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Camiseta Basic Get Money', 89.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                                     Adicionar ao Carrinho
                                 </button>
-                                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                                <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                                     Comprar
-                                </button>
+                                </a>
                                   </button>
                             </div>
                         </div>
@@ -313,9 +320,9 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Short Elastico Brasa', 119.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                             Adicionar ao Carrinho
                         </button>
-                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                        <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                             Comprar
-                        </button>
+                        </a>
                           </button>
                           
                           <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
@@ -347,9 +354,9 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Short Elastico Round', 119.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                             Adicionar ao Carrinho
                         </button>
-                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                        <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                             Comprar
-                        </button>
+                        </a>
                           </button>
                        
                         <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
@@ -381,9 +388,9 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="adicionarAoCarrinho('Bermuda Cargo By the Streeets', 249.90);" style="transition: all 0.3s ease; font-weight: bold; float: left;">
                             Adicionar ao Carrinho
                         </button>
-                          <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalComprar" style="transition: all 0.3s ease; font-weight:bold; float: center;">
+                        <a href="compra.html?produto=Camiseta+Classic+Fit+Typesetting&preco=85.90" class="btn btn-success btn-sm" style="transition: all 0.3s ease; font-weight: bold; float: center;">
                             Comprar
-                        </button>
+                        </a>
                           </button>
 
                         <div class="modal fade" id="modalComprar" tabindex="-1" aria-labelledby="modalComprarLabel" aria-hidden="true">
