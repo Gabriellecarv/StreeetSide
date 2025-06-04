@@ -77,7 +77,17 @@
                     <option value="boleto">Boleto Bancário</option>
                 </select>
             </div>
-
+<div class="mb-3" id="parcelamentoContainer" style="display: none;">
+    <label for="parcelas" class="form-label">Número de Parcelas</label>
+    <select class="form-select form-select-sm" id="parcelas" name="parcelas">
+        <option value="1">1x sem juros</option>
+        <option value="2">2x sem juros</option>
+        <option value="3">3x sem juros</option>
+        <option value="4">4x sem juros</option>
+        <option value="5">5x sem juros</option>
+        <option value="6">6x sem juros</option>
+    </select>
+</div>
             <!-- Submeter Formulário -->
             <button type="submit" class="btn btn-success mt-4">Finalizar Compra</button>
         </form>
@@ -116,6 +126,29 @@
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+    // Função para mostrar a mensagem de compra finalizada
+    function mostrarMensagemCompra() {
+        var modal = new bootstrap.Modal(document.getElementById('modalCompraFinalizada'));
+        modal.show();
+    }
+
+    // Mostrar/ocultar campo de parcelamento quando a forma de pagamento for "Cartão de Crédito"
+    document.addEventListener('DOMContentLoaded', function () {
+        const pagamento = document.getElementById('pagamento');
+        const parcelamentoContainer = document.getElementById('parcelamentoContainer');
+
+        pagamento.addEventListener('change', function () {
+            if (this.value === 'credito') {
+                parcelamentoContainer.style.display = 'block';
+            } else {
+                parcelamentoContainer.style.display = 'none';
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>

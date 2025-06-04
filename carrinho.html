@@ -102,13 +102,19 @@
         atualizarSacola(); // Atualiza o número de itens na sacola
     }
 
-    // Função para finalizar a compra (exemplo)
-    function finalizarCompra() {
-        alert('Compra finalizada!');
-        localStorage.removeItem('carrinho'); // Limpa o carrinho após a compra
-        carregarCarrinho(); // Atualiza a lista de itens após a limpeza
-        atualizarSacola(); // Atualiza a sacola
+   function finalizarCompra() {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
+        return;
     }
+
+    localStorage.removeItem('carrinho'); // Limpa o carrinho
+    atualizarSacola(); // Atualiza a sacola
+    window.location.href = 'compra.html'; // Redireciona para a página de compra
+}
+
 
     // Função para atualizar o número de itens na sacola (ícone da sacola)
     function atualizarSacola() {
